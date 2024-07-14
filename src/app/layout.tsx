@@ -40,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang='es'>
       <body
-        className={`${myFont.className} absolute top-0 z-[-2] h-screen w-full
+        className={`${myFont.className} absolute top-0 z-[-2] min-h-screen w-full 
   bg-[radial-gradient(100%_50%_at_50%_0%,rgba(142,206,249,0.13)_0,rgba(142,206,249,0)_50%,rgba(142,206,249,0)_100%)]
   dark:bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,86,121,0.13)_0,rgba(0,86,121,0)_50%,rgba(0,86,121,0)_100%)] bg-light-background dark:bg-dark-background selection:bg-light-primary selection:text-light-onPrimary dark:selection:bg-dark-primary dark:selection:text-dark-onPrimary`}
       >

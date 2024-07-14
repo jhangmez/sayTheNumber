@@ -3,12 +3,24 @@
 import { useState } from 'react'
 import { Button } from '@nextui-org/react'
 import { useVoiceToText } from 'react-speakup'
+import Timer from '@/components/timer' // Asegúrate de importar el componente Timer correctamente
+import toast from 'react-hot-toast'
 
 export default function SpeechtoText() {
   const { startListening, stopListening, transcript } = useVoiceToText({
     lang: 'en-US'
   })
   const [isRecording, setIsRecording] = useState(false)
+  const [startTimer, setStartTimer] = useState(false)
+
+  const handleTimeEnd = () => {
+    console.log('Tiempo de 5 segundos concluido')
+    toast('¡5 segundos han pasado!', {
+      style: {
+        minWidth: '250px'
+      }
+    })
+  }
 
   // Función para manejar el inicio de la grabación
   const handleStartListening = () => {
@@ -93,6 +105,12 @@ export default function SpeechtoText() {
           </span>
         )}
       </section>
+      <div>
+        <Button onClick={() => setStartTimer(true)}>
+          Iniciar Temporizador
+        </Button>
+        {startTimer && <Timer initialTime={5} onTimeEnd={handleTimeEnd} />}
+      </div>
     </>
   )
 }
